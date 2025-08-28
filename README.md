@@ -48,7 +48,10 @@ go mod tidy
 ```
 go run main.go
 ```
-
+```bash
+使用 nohup 防止终端退出时进程被终止
+nohup go run main.go > output.log 2>&1 &
+```
 然后打开浏览器访问：http://localhost:8080
 
 ## 使用方法
