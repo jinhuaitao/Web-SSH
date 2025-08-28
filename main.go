@@ -47,7 +47,7 @@ func main() {
 	http.HandleFunc("/ssh", sshHandler)
 
 	// 启动服务器
-	fmt.Printf("WebSSH服务启动在 http://localhost%s (IPv4) 和 http://[::1]%s (IPv6)\n", listenAddr, listenAddr)
+	fmt.Printf("WebSSH服务启动在 http://127.0.0.1%s (IPv4) 和 http://[::1]%s (IPv6)\n", listenAddr, listenAddr)
 	log.Fatal(http.ListenAndServe(listenAddr, nil)) // Go的默认HTTP服务器同时支持IPv4和IPv6
 }
 
