@@ -7,6 +7,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/gorilla/websocket"
@@ -15,7 +16,7 @@ import (
 
 // 配置
 const (
-	listenAddr = ":8080"
+	listenAddr = ":8080" // 同时支持IPv4和IPv6
 )
 
 // 全局变量
@@ -46,8 +47,8 @@ func main() {
 	http.HandleFunc("/ssh", sshHandler)
 
 	// 启动服务器
-	fmt.Printf("WebSSH服务启动在 http://localhost%s\n", listenAddr)
-	log.Fatal(http.ListenAndServe(listenAddr, nil))
+	fmt.Printf("WebSSH服务启动在 http://localhost%s (IPv4) 和 http://[::1]%s (IPv6)\n", listenAddr, listenAddr)
+	log.Fatal(http.ListenAndServe(listenAddr, nil)) // Go的默认HTTP服务器同时支持IPv4和IPv6
 }
 
 // 首页处理
@@ -102,8 +103,16 @@ func sshHandler(w http.ResponseWriter, r *http.Request) {
 		clientConfig.Auth = append(clientConfig.Auth, ssh.PublicKeys(signer))
 	}
 
-	// 连接到SSH服务器
-	sshConn, err := ssh.Dial("tcp", config.Host+":"+config.Port, clientConfig)
+	// 连接到SSH服务器（支持IPv4和IPv6）
+	var address string
+	if strings.Contains(config.Host, ":") {
+		// IPv6地址需要加方括号
+		address = fmt.Sprintf("[%s]:%s", config.Host, config.Port)
+	} else {
+		// IPv4地址
+		address = fmt.Sprintf("%s:%s", config.Host, config.Port)
+	}
+	sshConn, err := ssh.Dial("tcp", address, clientConfig)
 	if err != nil {
 		sendErrorMessage(conn, "SSH连接失败: "+err.Error())
 		return
