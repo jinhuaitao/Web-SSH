@@ -20,34 +20,32 @@
 1. 确保已安装Docker和Docker Compose
 2. 克隆此仓库
 3. 在项目根目录运行：
-
+```bash
+git clone https://github.com/jinhuaitao/Web-SSH.git
+```
+```bash
+cd Web-SSH
+```
 ```bash
 docker-compose up -d
 ```
 
 4. 打开浏览器访问：http://localhost:8080
 
-### 安装Docker
-
-如果您尚未安装Docker，可以使用提供的安装脚本：
-
-```bash
-chmod +x install-docker.sh
-./install-docker.sh
-```
-
-安装完成后，运行：
-
-```bash
-docker-compose up -d
-```
 
 ### 手动运行（需要Go环境）
 
 如果您已经安装了Go 1.16+，可以直接运行：
-
+```bash
+git clone https://github.com/jinhuaitao/Web-SSH.git
+```
+```bash
+cd Web-SSH
+```
 ```bash
 go mod tidy
+```
+```
 go run main.go
 ```
 
@@ -102,3 +100,5 @@ go run main.go
 ## 许可证
 
 MIT
+<img width="1652" height="1119" alt="38f6abb0-c3fb-478c-8ba1-dd3c707b543c" src="https://github.com/user-attachments/assets/ac0b2507-bbc1-42ee-97b1-644adfdea2a7" />
+<img width="1644" height="1114" alt="dca45297-c3ed-402f-8164-5b6dcde27285" src="https://github.com/user-attachments/assets/70b49141-f747-4a36-b892-c901bf019a05" />
