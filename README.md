@@ -11,7 +11,7 @@
 - 保存最近连接历史
 - 现代化UI界面，支持移动设备
 ## 演示网站（部署在WlawCloud Run）
-https://www.jhtao.dpdns.org
+https://lcszmquptlbz.ap-northeast-1.clawcloudrun.com
 ## 快速开始
 
 ### 使用Docker（推荐）
