@@ -10,7 +10,8 @@
 - 实时终端体验，支持所有终端命令
 - 保存最近连接历史
 - 现代化UI界面，支持移动设备
-
+## 演示网站（部署在WlawCloud Run）
+https://www.jhtao.dpdns.org
 ## 快速开始
 
 ### 使用Docker（推荐）
@@ -57,8 +58,7 @@ go run main.go
 nohup go run main.go > output.log 2>&1 &
 ```
 然后打开浏览器访问：http://localhost:8080
-## 演示网站
-https://www.jhtao.dpdns.org
+
 ## 使用方法
 
 1. 在登录界面输入SSH连接信息：
